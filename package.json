@@ -4,7 +4,10 @@
   "description": "Curso de JS com TDD na Pratica",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "silas": "echo 'Amós Silas'",
+    "lint": "./node_modules/.bin/eslint src/*js",
+    "prepush": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/silastj/tddPratica/issues"
   },
-  "homepage": "https://github.com/silastj/tddPratica#readme"
+  "homepage": "https://github.com/silastj/tddPratica#readme",
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.6"
+  }
 }
