@@ -1,5 +1,5 @@
 const amor = 3;
-const bola = 2;
+const bola = 2
 // const leftAMor = 4;
 const novo = 'novo'
 const casa = 'dasdasdsdadsdasdsdsdadsdasdsdadasasdsaddadadsassdasddsaasdad';
