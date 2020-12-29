@@ -1,5 +1,5 @@
 {
-  "name": "williamjusten",
+  "name": "Amós Silas",
   "version": "1.0.0",
   "description": "Curso de JS com TDD na Pratica",
   "main": "index.js",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/silastj/tddPratica#readme",
   "devDependencies": {
     "eslint": "^7.16.0",
-    "eslint-plugin-react": "^7.21.5"
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.6"
   }
 }
