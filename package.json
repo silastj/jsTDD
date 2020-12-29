@@ -1,5 +1,5 @@
 {
-  "name": "amossilas",
+  "name": "asilas",
   "version": "1.0.0",
   "description": "Curso de JS com TDD na Pratica",
   "main": "index.js",
@@ -27,6 +27,6 @@
   "devDependencies": {
     "eslint": "^7.16.0",
     "eslint-plugin-react": "^7.21.5",
-    "husky": "^4.3.6"
+    "husky": "^5.0.6"
   }
 }
