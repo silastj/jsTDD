@@ -97,7 +97,6 @@ console.log(paragrafo.endsWith('ior!', 21))
 console.log(paragrafo.includes('nosso'))
 console.log('pá '.repeat(10))
 
-
 //ARRAY.FROM
 const list = document.querySelectorAll('#list li');
 const listArray = Array.from(list)
@@ -106,8 +105,88 @@ console.log(listArray)
 const listados = listArray.map((palavra) => palavra.textContent);
 console.log(listados)
 
-
 //ARRAY.OF
 //juntar varios dados e unir de uma forma rapida e simples[ string, number object]
 const variosArray = Array.of(1,2,"Silas", {nome: "Amós Silas"});
 console.log(variosArray)
+
+//FIND E FINDINDEX
+const data =[
+    {
+    nome:'Amós',
+    age: 36,
+    city: 'Ferraz'
+  },
+  {
+    nome:'Silas',
+    age: 36,
+    city: 'Ferraz'
+  },
+  {
+    nome:'Santos',
+    age: 36,
+    city: 'Ferraz'
+  }
+]
+const amos = data.find(name => name.nome === 'Silas');
+const asilas = data.findIndex(name => name.nome === 'Santos');
+console.log(amos,asilas)
+
+//ARRAY FILL
+//Acrescentar palavras dentro do array e tb no indice que eu escolher
+const arr = new Array(50);
+arr.fill('bola')
+arr.fill('quadrado', 1, 4)
+console.log(arr)
+
+//DESTRUCTURING
+//Pegando dados dentro de um objeto ou array de forma mais simples
+var dados = {
+  nome:'Silas',
+  age: 36,
+    social: {
+      insta: 'silinhas',
+      face: 'silinhasFace'
+    }
+}
+const {nome, age } = dados;
+const {insta, face } = dados.social;
+console.log(nome, age, insta, face)
+
+//Podemos mudar o nome da variavel
+const {face:fb} = dados.social;
+console.log(fb)
+
+//Podemos setar tb um valor que não existe variavel e criala
+// const { cidade } = dados;
+// console.log(cidade)
+
+//DESTRUCTURING NO ARRAY
+//invertendo o processo no array
+const desArray = ['casa', 'carro', 36, 'beleza']
+const [casa, carro, idd, moda] = desArray;
+console.log(casa, carro, idd, moda)
+
+//FAZENDO SWAP DE VARIAVEIS DESTRUCTURING
+let arma = 'Fogo';
+let bala = '38';
+[arma,bala] = [bala,arma]
+// console.log(`${arma} e ${bala}`)
+
+//SPREAD OPERATOR
+let front = [ 'javascript', 'vue', 'reactjs']
+let back = [ 'php', 'laravel', 'java']
+
+//Modo antigo
+const fullstack = front.concat(back)
+console.log(fullstack)
+//Modo Novo
+const fullstackDoisMilVinteUm = [...front, ...back]
+console.log(fullstackDoisMilVinteUm)
+// add no meio do spread operator
+const fullstackDoisMilVinteUmMais = [...front, 'mais um',...back]
+console.log(fullstackDoisMilVinteUmMais)
+
+
+
+
