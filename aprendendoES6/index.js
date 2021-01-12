@@ -187,6 +187,51 @@ console.log(fullstackDoisMilVinteUm)
 const fullstackDoisMilVinteUmMais = [...front, 'mais um',...back]
 console.log(fullstackDoisMilVinteUmMais)
 
+//SPREAD OPERATOR
+function addItens(livro, caneta, alcool) {
+  console.log(`Inicio com ${alcool} passando na caneta ${caneta}, e lendo o ${livro}`)
+}
+const dia = ['js', 'azul','70']
+addItens(...dia)
+
+//REST PARAMS
+function mult(mult, ...args){
+  return args.map(arg => arg * mult)
+}
+console.log(mult(10, 1, 2 ,3 ,4))
+
+//INTRO A PROMISES, é uma promesa eu não fiz mas vou fazer alguma coisa.
+ var defer = new Promise((resolve, reject) => {
+    if(false)
+      console.log('Hello!!')
+      console.log('Error!!')
+ });
+ defer
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+//EXEMPLO REAL
+/* Temos três status:
+pending => está pendente
+resolved => está resolvida
+rejected => teve problema e não conseguiu se resolver */
+
+// const posts = fetch('https://www.willianjusten.com.br/search.json');
+const cars = fetch('https://gitautomarcas.cidautostore.com.br/api/get-veiculos-info');
+console.log(cars)
+
+ cars
+    .then(data => data.json())
+    // .then(data => console.log(data));
+    // .then(data => console.log(data.veiculos))
+
+    .then(data => data.map(car => {
+      console.log(car)
+    }))
+
+
+//TEMOS TB A PROMISSE ALL E RACE
+// ALL Controla toda as promisses e RACE executa a primeira e elimna as demais
 
 
 
