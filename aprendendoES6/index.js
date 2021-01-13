@@ -221,13 +221,25 @@ const cars = fetch('https://gitautomarcas.cidautostore.com.br/api/get-veiculos-i
 console.log(cars)
 
  cars
-    .then(data => data.json())
-    // .then(data => console.log(data));
-    // .then(data => console.log(data.veiculos))
+  .then(data => data.json())
+  .then(data => {
+    const carros = data.veiculos
+    const carresultado = data.veiculos
+    console.log(carresultado)
+    const automoveis = document.querySelector('.automoveis p')
+    var textN = ''
+      for(var i = 0;  i < carros.length; i ++){
+        // textN += carresultado[i].id + '<br>'
+        textN += `<p>ID: ${carresultado[i].id}  MARCA: ${carresultado[i].marca} MODELO: ${carresultado[i].modelo}</p>`
+      }
+    automoveis.innerHTML = textN
+  })
 
-    .then(data => data.map(car => {
-      console.log(car)
-    }))
+
+
+  // .then(data => data.map(car => {
+  //   console.log(car)
+  // }))
 
 
 //TEMOS TB A PROMISSE ALL E RACE
