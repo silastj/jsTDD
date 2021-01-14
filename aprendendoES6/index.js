@@ -293,8 +293,106 @@ tech.set('monitor', 'game')
 
 console.log(tech.has('monitor'))
 console.log(tech)
-console.log(tech.add('monitor','escritorio'))
+// console.log(tech.add('monitor','escritorio'))
 console.log(tech)
 //WEAKMAP só aceita objetos
 
 
+//ES7/ES8 => SYNC AWAIT
+async function getWil(){
+  const response = await fetch('https://www.willianjusten.com.br/search.json')
+  const data = await response.json();
+  return data.map(post => {
+    console.log(post.title)
+  })
+}
+getWil()
+//TRATANDO ERROS com try catch
+async function getChuck() {
+  try {
+    const Cresponse = await fetch('https://api.chucknorris.io/jokes/random')
+    console.log(Cresponse)
+    const data = await Cresponse.json();
+    console.log(data.icon_url)
+  }
+  catch(err){
+    console.error('Nooooo, está errado', err)
+  }
+}
+getChuck()
+
+//SYNC AWAIT ALL
+async function getAll(){
+  const one = await fetch('https://www.willianjusten.com.br/search.json').then(r => r.json())
+  const two = await fetch('https://api.chucknorris.io/jokes/random').then(r => r.json())
+  const three = await Promise.all([one, two])
+  console.log(three)
+}
+getAll()
+
+async function userGithub(usersa){
+  const res = usersa.map( usera => fetch(`https://api.github.com/users/${usera}`).then(r => r.json()))
+  const total = await Promise.all(res)
+  console.log(total.map(pq => pq))
+}
+userGithub(['silastj','guilouro'])
+
+//NEW
+async function getUsers(users){
+  try{
+    const github = await fetch(`https://api.github.com/users/${users}`).then(r => r.json());
+    const reGitHub = await Promise.all([github])
+    console.log(reGitHub)
+    console.log(reGitHub.map(p => p.name))
+
+    const githtml = document.querySelector('.github')
+    githtml.innerHTML =
+     `
+      <p>${reGitHub[0].login}</p>
+      <img src="${reGitHub[0].avatar_url}" style="width:100px"></img>
+      <p>${reGitHub[0].blog}</p>
+      <p>${reGitHub[0].url}</p>
+      `;
+  }
+  catch(err){
+    console.error('Erro api Github', err)
+  }
+}
+getUsers(['silastj'])
+
+//PADSTART E PADEND
+//Tamamnho desejado com os valores
+
+const bo = 'cea';
+console.log('1'.padStart(3,'inicio'))
+console.log('1'.padEnd(2,'fim'))
+
+//EXPONENTIATION
+//Potencia de numero antes era o old way console.log(Math.pow(2,3));
+
+console.log('exponentiation: ' + 2 ** 3)
+
+//ARRAY INCLUDES
+//Ele verifica se existe um certo valor no array, forma antiga
+
+const nn = [1,2,3,4]
+console.log('Forma antiga includes => : ' + nn.indexOf(3) > 1)
+//NOVO METODO
+console.log('Forma nova includes => : ' + nn.includes(1))
+
+//OBJECT ENTRIES trabalando com chave e valor
+const motos = {
+  honda: 1,
+  yahama: 2,
+  suzuki: 3
+}
+const agencia = new Map(Object.entries(motos))
+console.log('agencia: '+ agencia.size)
+console.log('agencia: '+ agencia.has(2))
+
+//OBJECT VALUES
+console.log('TOTAL DE MARCAS: ' + Object.values(motos))
+console.log('SOMA DAS MARCAS: ' + Object.values(motos).reduce((a,b) => a + b))
+
+
+//MÓDULOS EM JS
