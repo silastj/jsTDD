@@ -235,15 +235,66 @@ console.log(cars)
     automoveis.innerHTML = textN
   })
 
-
-
-  // .then(data => data.map(car => {
-  //   console.log(car)
-  // }))
-
-
 //TEMOS TB A PROMISSE ALL E RACE
 // ALL Controla toda as promisses e RACE executa a primeira e elimna as demais
 
+//SYMBOL
+//Ele é unico
+let livro = Symbol('tech');
+let caderno = Symbol('tech')
+
+console.log(livro == caderno, livro === caderno)
+
+let obj = {
+  [Symbol('cor')]: 'vermelho',
+  [Symbol('idade')]: 24,
+  estilo: 'SP'
+}
+//Pegando as propriedades do Symbol
+const symbols = Object.getOwnPropertySymbols(obj)
+console.log(symbols)
+const dataS = symbols.map((sym => obj[sym]))
+console.log(dataS)
+
+//INTERATORS E ITERABLES 41 -11.2
+//GENERATORS Ele chama apenas uma vez a função, para chamar mais de uma vez preciso repetir o comando
+
+function* getLivros(){
+  yield 'Tech',
+  yield 'Saúde',
+  yield 'Mente'
+}
+
+const resLivros = getLivros()
+
+console.log(resLivros.next())
+console.log(resLivros.next())
+console.log(resLivros.next())
+
+//GENERATORS para trabalhar com fluxos!
+
+//SET
+let notebook = new Set(['LG', 'SAMSUNG', 'APPLE'])
+notebook.add('DELL').delete('DELL')
+console.log(notebook)
+console.log('Existe esse notebook: LG '+ notebook.has('LG'))
+console.log(notebook.has('SAMSUNG'))// VERIFICA SE EXISTE O ITEM
+for(note of notebook){
+  console.log(note)
+}
+//WEAK SET - Parecido com Set acima,lmebrando que não tem algumas propriedades
+
+//MAP
+let tech = new Map();
+
+tech.set('mouse', 'com fio')
+tech.set('mesa', 'madeira')
+tech.set('monitor', 'game')
+
+console.log(tech.has('monitor'))
+console.log(tech)
+console.log(tech.add('monitor','escritorio'))
+console.log(tech)
+//WEAKMAP só aceita objetos
 
 
